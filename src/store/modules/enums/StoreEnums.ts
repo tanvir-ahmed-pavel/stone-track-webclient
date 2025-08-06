@@ -1,0 +1,58 @@
+enum Actions {
+  // action types
+  ADD_BODY_CLASSNAME = "addBodyClassName",
+  REMOVE_BODY_CLASSNAME = "removeBodyClassName",
+  ADD_BODY_ATTRIBUTE = "addBodyAttribute",
+  REMOVE_BODY_ATTRIBUTE = "removeBodyAttribute",
+  ADD_CLASSNAME = "addClassName",
+  VERIFY_AUTH = "verifyAuth",
+  LOGIN = "login",
+  LOGOUT = "logout",
+  REGISTER = "register",
+  UPDATE_USER = "updateUser",
+  FORGOT_PASSWORD = "forgotPassword",
+  SET_BREADCRUMB_ACTION = "setBreadcrumbAction",
+  CLEAR_ERROR = "clearError",
+  // Items
+  GET_ITEMS = "getApiItems",
+  ADD_ITEM = "addItem",
+  DELETE_ITEM = "deleteItem",
+  UPDATE_ITEM = "updateItem",
+  GET_LOOKUP_DATA = "getLookupData",
+  ADD_DRIVER = "addDriver",
+  GET_DRIVERS = "getDriversApi",
+  UPDATE_DRIVER = "updateDriver",
+  DELETE_DRIVER = "deleteDriver",
+  ADD_VEHICLE = "addVehicle",
+  GET_VEHICLES = "getVehiclesApi",
+  UPDATE_VEHICLE = "updateVehicle",
+  DELETE_VEHICLE = "deleteVehicle",
+}
+
+enum Mutations {
+  // mutation types
+  SET_CLASSNAME_BY_POSITION = "appendBreadcrumb",
+  PURGE_AUTH = "logOut",
+  SET_AUTH = "setAuth",
+  SET_SERVER_STATUS = "setServerStatus",
+  SET_USER = "setUser",
+  SET_PASSWORD = "setPassword",
+  SET_ERROR = "setError",
+  SET_BREADCRUMB_MUTATION = "setBreadcrumbMutation",
+  SET_LAYOUT_CONFIG = "setLayoutConfig",
+  RESET_LAYOUT_CONFIG = "resetLayoutConfig",
+  OVERRIDE_LAYOUT_CONFIG = "overrideLayoutConfig",
+  OVERRIDE_PAGE_LAYOUT_CONFIG = "overridePageLayoutConfig",
+  SET_ITEMS = "setItems",
+  SET_ITEM_ERROR = "setItemErrors",
+  SET_SINGLE_ITEM = "setSingleItem",
+  SET_LOOKUP_DATA = "setLookUpData",
+  SET_DRIVERS = "setDrivers",
+  SET_SINGLE_DRIVER = "setSingleDriver",
+  SET_DRIVER_ERROR = "setDriverError",
+  SET_VEHICLES = "setVehicles",
+  SET_SINGLE_VEHICLE = "setSingleVehicle",
+  SET_VEHICLE_ERROR = "setVehicleError",
+}
+
+export { Actions, Mutations };

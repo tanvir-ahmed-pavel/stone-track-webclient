@@ -1,0 +1,173 @@
+<template>
+  <!--begin::List Widget 1-->
+  <div :class="widgetClasses" class="card">
+    <!--begin::Body-->
+    <div class="card-body p-0">
+      <!--begin::Header-->
+      <div
+        :class="`bg-${widgetColor}`"
+        class="px-9 pt-7 card-rounded h-275px w-100"
+      >
+        <!--begin::Heading-->
+        <div class="d-flex flex-stack">
+          <h3 class="m-0 text-white fw-bolder fs-2x">
+            <slot name="card-title"></slot>
+          </h3>
+
+          <div class="ms-1">
+            <!--begin::Menu-->
+            <button
+              type="button"
+              :class="`btn-active-color-${widgetColor}`"
+              class="btn btn-sm btn-icon btn-color-white btn-active-white border-0 me-n3"
+              data-kt-menu-trigger="click"
+              data-kt-menu-placement="bottom-end"
+              data-kt-menu-flip="top-end"
+            >
+              <span class="svg-icon svg-icon-2">
+                <inline-svg src="media/icons/duotune/general/gen024.svg" />
+              </span>
+            </button>
+            <Dropdown3></Dropdown3>
+            <!--end::Menu-->
+          </div>
+        </div>
+        <!--end::Heading-->
+
+        <!--begin::Balance-->
+        <div class="d-flex text-white pt-5 justify-content-between">
+          <div
+            class="d-flex text-center flex-column mx-5"
+            v-for="(title, index) in titles"
+            :key="index"
+          >
+            <span class="fw-bold fs-6">{{ title.name }}</span>
+            <span class="fw-bolder fs-4 pt-1">
+              {{ title.value }}
+            </span>
+          </div>
+        </div>
+        <!--end::Balance-->
+      </div>
+      <!--end::Header-->
+
+      <!--begin::Items-->
+      <div
+        class="shadow-mod card-rounded mx-9 mb-9 px-6 py-9 position-relative z-index-1 bg-white scroll-mod"
+        style="margin-top: -120px"
+      >
+        <!--begin::Item-->
+        <div class="d-flex align-items-center">
+          <table class="table table-striped">
+            <thead class="text-center">
+              <th class="fw-bolder fs-4" scope="col">Date</th>
+              <th class="fw-bolder fs-4" scope="col">Truck</th>
+              <th class="fw-bolder fs-4" scope="col">Loading</th>
+              <th class="fw-bolder fs-4" scope="col">Get</th>
+            </thead>
+            <tbody>
+              <tr
+                v-for="(item, index) in items"
+                :key="index"
+                class="text-center"
+              >
+                <td class="py-6">
+                  <span class="fw-bold fs-5">
+                    {{ item.date }}
+                  </span>
+                </td>
+                <td class="py-6">
+                  <span class="fw-bold fs-5">
+                    {{ item.truck }}
+                  </span>
+                </td>
+                <td class="py-6">
+                  <span class="fw-bold fs-5">
+                    {{ item.loading }}
+                  </span>
+                </td>
+                <td class="py-6">
+                  <span class="fw-bold fs-5">
+                    {{ item.get }}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--end::Item-->
+      </div>
+      <!--end::Items-->
+    </div>
+    <!--end::Body-->
+  </div>
+  <!--end::List Widget 1-->
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+import Dropdown3 from "@/components/dropdown/Dropdown3.vue";
+
+export default defineComponent({
+  name: "summary-card-1",
+  components: {
+    Dropdown3,
+  },
+  props: {
+    widgetClasses: String,
+    widgetColor: String,
+    chartHeight: Number,
+    items: Object,
+    titles: Array,
+  },
+  setup() {
+    // const items = [
+    //   {
+    //     icon: "media/icons/duotune/arrows/arr076.svg",
+    //     title: "Sales",
+    //     description: "100 Regions",
+    //     stats: "$2,5b",
+    //     arrow: "up",
+    //   },
+    //   {
+    //     icon: "media/icons/duotune/general/gen024.svg",
+    //     title: "Revenue",
+    //     description: "Quarter 2/3",
+    //     stats: "$1,7b",
+    //     arrow: "down",
+    //   },
+    //   {
+    //     icon: "media/icons/duotune/electronics/elc005.svg",
+    //     title: "Growth",
+    //     description: "80% Rate",
+    //     stats: "$8,8m",
+    //     arrow: "up",
+    //   },
+    //   {
+    //     icon: "media/icons/duotune/general/gen005.svg",
+    //     title: "Dispute",
+    //     description: "3090 Refunds",
+    //     stats: "$270m",
+    //     arrow: "down",
+    //   },
+    // ];
+
+    return {
+      // items,
+    };
+  },
+});
+</script>
+
+<style scoped>
+.shadow-mod {
+  box-shadow: 1px 10px 7px -5px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 1px 10px 7px -5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 1px 10px 7px -5px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-mod {
+  height: 50vh;
+  overflow-y: auto;
+}
+</style>
